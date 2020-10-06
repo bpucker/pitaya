@@ -3,7 +3,7 @@
 ### v0.1 ###
 
 __usage__ = """
-					python pitaya_exp_plots_summary.py
+					python pitaya_MYB_exp_plots_summary.py
 					--genes <GENES_FILE>
 					--exp <EXPRESSION_FILE>
 					--out <FIGURE_OUTPUT_FILE>
@@ -52,7 +52,7 @@ def load_exp( gene_file ):
 	return exp
 
 
-def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order, border ):
+def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order ):
 	"""! @brief generate figure """
 	
 	cultivar_colors = { "BR":"blue", "FR":"darkorchid", "DH":"deeppink", "BSJ":"grey" }
@@ -88,7 +88,7 @@ def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, ge
 			gene_lables.append( "$\it{" + gene.replace( "_", "'" ) + "}$" )
 	
 	# --- generate plot --- #
-	fig, ( ax, ax2 ) = plt.subplots( 2, 1, figsize=( 7, 5 ) )			
+	fig, ax = plt.subplots( )			
 	
 	
 	for idx, cultivar in enumerate( genotype_order ):
@@ -101,59 +101,35 @@ def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, ge
 							meanprops=dict(color="black"),
 							zorder=0
 							 )
-		ax2.boxplot( data_to_plot[ cultivar ], positions= positions[ cultivar ], widths=0.75, patch_artist=True, #showmeans=True, #notch=True,
-							boxprops=dict( facecolor=cultivar_colors[ cultivar ], color=cultivar_colors[ cultivar ]),
-							capprops=dict(color=cultivar_colors[ cultivar ]),
-							whiskerprops=dict(color=cultivar_colors[ cultivar ]),
-							flierprops=dict(color=cultivar_colors[ cultivar ], markeredgecolor=cultivar_colors[ cultivar ]),
-							medianprops=dict(color="black"),
-							meanprops=dict(color="black"),
-							zorder=0
-							 )
 		
 	
-	ax2.xaxis.set_ticks( label_positions )
-	ax2.set_xticklabels( gene_lables, fontsize=10, rotation=90 )
+	ax.xaxis.set_ticks( label_positions )
+	ax.set_xticklabels( gene_lables, fontsize=10, rotation=90 )
 	
-	#ax.set_ylabel( "transcript abundance [RPKMs]", fontsize=10 )
-	ax.text( -5, max( [ x for sublist in positions.values() for x in sublist ] ), "transcript abundance [RPKMs]", fontsize=10, rotation=90, ha="center", va="center" )
+	ax.set_ylabel( "transcript abundance [RPKMs]", fontsize=10 )
 	ax.set_xlim( -0.5, max( [ x for sublist in positions.values() for x in sublist ] )+1 )
-	ax2.set_xlim( -0.5, max( [ x for sublist in positions.values() for x in sublist ] )+1 )
 	
 	simplified_list =  [ x for sublist in data_to_plot.values() for x in sublist ]
-	ax.set_ylim( border+1, 1.1*max( [ x for sublist in simplified_list for x in sublist ] ) )
-	ax2.set_ylim( 0, border )
+	ax.set_ylim( 0, 15 )
 	
 	ax.tick_params(axis='y', which='major', labelsize=10)
 	ax.tick_params(axis='y', which='minor', labelsize=10)
-	ax2.tick_params(axis='y', which='major', labelsize=10)
-	ax2.tick_params(axis='y', which='minor', labelsize=10)
 	
-	ax.spines['bottom'].set_visible(False)
+	# ax.spines['bottom'].set_visible(False)
 
-	ax2.spines['top'].set_visible(False)
-	ax.set_xticks( [] )
-	ax.tick_params(labeltop='off')
-	ax2.xaxis.tick_bottom()
-	
-	d = .005  # how big to make the diagonal lines in axes coordinates
-	# arguments to pass to plot, just so we don't keep repeating them
-	kwargs = dict(transform=ax.transAxes, color='k', clip_on=False)
-	ax2.plot((-d, +d), (-d, +d), **kwargs)        # top-left diagonal
-	ax2.plot((1 - d, 1 + d), (-d, +d), **kwargs)  # top-right diagonal
-
-	kwargs.update(transform=ax2.transAxes)  # switch to the bottom axes
-	ax.plot((-d, +d), (1 - d, 1 + d), **kwargs)  # bottom-left diagonal
-	ax.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
+	# ax2.spines['top'].set_visible(False)
+	# ax.set_xticks( [] )
+	# ax.tick_params(labeltop='off')
+	# ax2.xaxis.tick_bottom()
 	
 	my_legend = [	mpatches.Patch(color=cultivar_colors[ "DH" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ Da Hong'),
 								mpatches.Patch(color=cultivar_colors[ "FR" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ x $\it{undatus}$ Fen Rou'),
 								mpatches.Patch(color=cultivar_colors[ "BR" ], label='$\it{Hylocereus}$ $\it{undatus}$ Bai Rou')
 								#mpatches.Patch(color=cultivar_colors[ "BSJ" ], label='BSJ')
 							]
-	ax.legend( handles=my_legend, loc="upper left", ncol=1, bbox_to_anchor=(0.5, 0.95), fontsize=9 )
+	ax.legend( handles=my_legend, loc="upper left", ncol=1, bbox_to_anchor=(0.001, 0.99), fontsize=9 )
 	
-	plt.subplots_adjust( left=0.1, right=0.999, top=0.99, bottom=0.13, hspace=0.03  )
+	plt.subplots_adjust( left=0.1, right=0.999, top=0.99, bottom=0.18, hspace=0.03  )
 	
 	fig.savefig( figfile, dpi=300 )
 	plt.close( "all" )
@@ -179,7 +155,7 @@ def main( arguments ):
 
 	exp = load_exp( exp_file )
 
-	generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order, 50 )
+	generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order )
 
 
 if '--genes' in sys.argv and '--exp' in sys.argv and '--out' in sys.argv:
