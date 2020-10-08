@@ -35,7 +35,6 @@ python calculate_RPKMs.py
 --assembly <ASSEMBLY_FILE>
 ```
 
-
 `--counts` this text file contains the raw counts in a matrix with samples in columns and sequences (transcripts/genes) in rows.
 
 `--rpkm` this text file is the output. The layout matches the input file, but all values are normalized based on sequencing depth and sequence length (RPKMs).
@@ -43,14 +42,21 @@ python calculate_RPKMs.py
 `--assembly` this FASTA file contains the sequences mentioned in the expression data file. Lengths of these transcript sequences will be used to calculate RPKM values.
 
 
-
-
-
 ### Plotting transcript abundances
 
-The scripts pitaya_MYB_exp_plots_summary.py and pitaya_exp_plots_summary.py contain dataset specific elements. These scripts are included for documentation purposes and should not be used on other datasets without adjustments.
+The scripts `pitaya_MYB_exp_plots_summary.py` and `pitaya_exp_plots_summary.py` contain dataset specific elements. These scripts are included for documentation purposes and should not be used on other datasets without adjustments.
 
+```
+python pitaya_exp_plots_summary.py
+--genes <GENES_FILE>
+--exp <EXPRESSION_FILE>
+--out <FIGURE_OUTPUT_FILE>
+```
+`--genes` this text file has two TAB-separated columns. The first column specifies a display name for the transcript/gene. The second column is a single sequence ID or a comma-separated list of sequence IDs which are used to connect transcript abundance values to the display name.
 
+`--exp` this file contains the transcript abundance values as described above. Normalized data (TPMs, RPKMs) should be used for the construction of figures.
+
+`--out` specifies the figure output file. The file extension specifies the file type (e.g. PNG, JPG, PDF, SVG).
 
 
 
