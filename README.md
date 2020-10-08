@@ -1,7 +1,9 @@
 # pitaya
 
-This is a collection of script associated with the re-analysis of a pitaya RNA-Seq dataset.
+This is a collection of scripts associated with the re-analysis of a pitaya RNA-Seq dataset. Results of this analysis can be found [here]().
 
+
+## Calculation of transcriptome assembly statistics 
 
 ```
 python contig_stats.py
@@ -21,6 +23,7 @@ optional:
 
 `--exp` specifies a text file which contains normalized expression data (e.g. TPMs, RPKMs, FPKMs). These values are used to calculate ExNx statistics like E90N50. Therefore, it is crucial that the sequence names in this file match the sequence names in the provided FASTA file.
 
+This version is based on previously developed scripts ([1](https://doi.org/10.1371/journal.pone.0164321), [2](https://doi.org/10.3389/fmolb.2018.00062)).
 
 
 
