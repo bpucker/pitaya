@@ -62,6 +62,9 @@ python pitaya_exp_plots_summary.py
 
 
 ## References
+
+Pucker B. and Brockington S. (2020). Pitaya transcriptome assemblies and investigation of transcript abundances. Bielefeld University. doi: [10.4119/unibi/2946374](https://doi.org/10.4119/unibi/2946374).
+
 Haak, M., Vinke, S., Keller, W., Droste, J., Rückert, C., Kalinowski, J., & Pucker, B. (2018). High Quality de novo Transcriptome Assembly of Croton tiglium. Frontiers in Molecular Biosciences, 5. doi:[10.3389/fmolb.2018.00062](https://doi.org/10.3389/fmolb.2018.00062).
 
 Pucker, B., Holtgräwe, D., Rosleff Sörensen, T., Stracke, R., Viehöver, P., and Weisshaar, B. (2016). A de novo Genome Sequence Assembly of the Arabidopsis thaliana Accession Niederzenz-1 Displays Presence/Absence Variation and Strong Synteny. PloS-ONE 11:e0164321. doi:[10.1371/journal.pone.0164321](https://doi.org/10.1371/journal.pone.0164321).
