@@ -1,6 +1,6 @@
 ### Boas Pucker ###
 ### bpucker@cebitec.uni-bielefeld.de ###
-### v0.1 ###
+### v0.15 ###
 
 __usage__ = """
 					python pitaya_MYB_exp_plots_summary.py
@@ -122,9 +122,9 @@ def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, ge
 	# ax.tick_params(labeltop='off')
 	# ax2.xaxis.tick_bottom()
 	
-	my_legend = [	mpatches.Patch(color=cultivar_colors[ "DH" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ Da Hong'),
-								mpatches.Patch(color=cultivar_colors[ "FR" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ x $\it{undatus}$ Fen Rou'),
-								mpatches.Patch(color=cultivar_colors[ "BR" ], label='$\it{Hylocereus}$ $\it{undatus}$ Bai Rou')
+	my_legend = [	mpatches.Patch(color=cultivar_colors[ "DH" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ Da Hong (DH, red)'),
+								mpatches.Patch(color=cultivar_colors[ "FR" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ x $\it{undatus}$ Fen Rou (FR, pink)'),
+								mpatches.Patch(color=cultivar_colors[ "BR" ], label='$\it{Hylocereus}$ $\it{undatus}$ Bai Rou (BR, white)')
 								#mpatches.Patch(color=cultivar_colors[ "BSJ" ], label='BSJ')
 							]
 	ax.legend( handles=my_legend, loc="upper left", ncol=1, bbox_to_anchor=(0.001, 0.99), fontsize=9 )

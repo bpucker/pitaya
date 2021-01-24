@@ -1,6 +1,6 @@
 ### Boas Pucker ###
 ### bpucker@cebitec.uni-bielefeld.de ###
-### v0.1 ###
+### v0.15 ###
 
 __usage__ = """
 					python pitaya_exp_plots_summary.py
@@ -52,7 +52,7 @@ def load_exp( gene_file ):
 	return exp
 
 
-def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order, border ):
+def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order, upper_border, lower_border ):
 	"""! @brief generate figure """
 	
 	cultivar_colors = { "BR":"blue", "FR":"darkorchid", "DH":"deeppink", "BSJ":"grey" }
@@ -88,8 +88,7 @@ def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, ge
 			gene_lables.append( "$\it{" + gene.replace( "_", "'" ) + "}$" )
 	
 	# --- generate plot --- #
-	fig, ( ax, ax2 ) = plt.subplots( 2, 1, figsize=( 7, 5 ) )			
-	
+	fig, ( ax, ax2 ) = plt.subplots( 2, 1, figsize=( 7, 5 ) )
 	
 	for idx, cultivar in enumerate( genotype_order ):
 		ax.boxplot( data_to_plot[ cultivar ], positions= positions[ cultivar ], widths=0.75, patch_artist=True, #showmeans=True, #notch=True,
@@ -110,19 +109,18 @@ def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, ge
 							meanprops=dict(color="black"),
 							zorder=0
 							 )
-		
 	
 	ax2.xaxis.set_ticks( label_positions )
 	ax2.set_xticklabels( gene_lables, fontsize=10, rotation=90 )
 	
 	#ax.set_ylabel( "transcript abundance [RPKMs]", fontsize=10 )
-	ax.text( -5, max( [ x for sublist in positions.values() for x in sublist ] ), "transcript abundance [RPKMs]", fontsize=10, rotation=90, ha="center", va="center" )
+	ax2.text( -5, upper_border, "transcript abundance [RPKMs]", fontsize=10, rotation=90, ha="center", va="center" )
 	ax.set_xlim( -0.5, max( [ x for sublist in positions.values() for x in sublist ] )+1 )
 	ax2.set_xlim( -0.5, max( [ x for sublist in positions.values() for x in sublist ] )+1 )
 	
 	simplified_list =  [ x for sublist in data_to_plot.values() for x in sublist ]
-	ax.set_ylim( border+1, 1.1*max( [ x for sublist in simplified_list for x in sublist ] ) )
-	ax2.set_ylim( 0, border )
+	ax.set_ylim( lower_border+1, 1.01*max( [ x for sublist in simplified_list for x in sublist ] ) )
+	ax2.set_ylim( 0, upper_border )
 	
 	ax.tick_params(axis='y', which='major', labelsize=10)
 	ax.tick_params(axis='y', which='minor', labelsize=10)
@@ -146,12 +144,13 @@ def generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, ge
 	ax.plot((-d, +d), (1 - d, 1 + d), **kwargs)  # bottom-left diagonal
 	ax.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 	
-	my_legend = [	mpatches.Patch(color=cultivar_colors[ "DH" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ Da Hong'),
-								mpatches.Patch(color=cultivar_colors[ "FR" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ x $\it{undatus}$ Fen Rou'),
-								mpatches.Patch(color=cultivar_colors[ "BR" ], label='$\it{Hylocereus}$ $\it{undatus}$ Bai Rou')
+	my_legend = [	mpatches.Patch(color=cultivar_colors[ "DH" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ Da Hong (DH, red)'),
+								mpatches.Patch(color=cultivar_colors[ "FR" ], label='$\it{Hylocereus}$ $\it{polyrhizus}$ x $\it{undatus}$ Fen Rou (FR, pink)'),
+								mpatches.Patch(color=cultivar_colors[ "BR" ], label='$\it{Hylocereus}$ $\it{undatus}$ Bai Rou (BR, white)')
 								#mpatches.Patch(color=cultivar_colors[ "BSJ" ], label='BSJ')
 							]
-	ax.legend( handles=my_legend, loc="upper left", ncol=1, bbox_to_anchor=(0.5, 0.95), fontsize=9 )
+	#ax.legend( handles=my_legend, loc="upper left", ncol=1, bbox_to_anchor=(0.425, 0.95), fontsize=8.5 )
+	ax.legend( handles=my_legend, loc="upper right", ncol=1, bbox_to_anchor=(0.999, 0.95), fontsize=8.5 )
 	
 	plt.subplots_adjust( left=0.1, right=0.999, top=0.99, bottom=0.13, hspace=0.03  )
 	
@@ -166,7 +165,6 @@ def main( arguments ):
 	exp_file = arguments[ arguments.index('--exp')+1 ]
 	figfile = arguments[ arguments.index('--out')+1 ]
 
-
 	sample_groups = { 'BR': [ "SRR11190794", "SRR11190793", "SRR11190792" ],
 									'DH': [ "SRR11190802", "SRR11190801", "SRR11190798" ],
 									'FR': [ "SRR11190797", "SRR11190796", "SRR11190795" ],
@@ -179,7 +177,7 @@ def main( arguments ):
 
 	exp = load_exp( exp_file )
 
-	generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order, 50 )
+	generate_gene_exp_figure( figfile, genes, exp, gene_order, sample_groups, genotype_order, 180, 280 )
 
 
 if '--genes' in sys.argv and '--exp' in sys.argv and '--out' in sys.argv:
