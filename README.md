@@ -63,6 +63,8 @@ python pitaya_exp_plots_summary.py
 
 ## References
 
+Pucker B., Singh H.B., Kumari M., Khan M.I., Brockington S.F. (2021) The report of anthocyanins in the betalain-pigmented genus Hylocereus is not well evidenced and is not a strong basis to refute the mutual exclusion paradigm. BMC Plant Biology 21(1): 297. doi:[10.1186/s12870-021-03080-9](https://doi.org/10.1186/s12870-021-03080-9).
+
 Pucker B. and Brockington S. (2020). Pitaya transcriptome assemblies and investigation of transcript abundances. Bielefeld University. doi: [10.4119/unibi/2946374](https://doi.org/10.4119/unibi/2946374).
 
 Haak, M., Vinke, S., Keller, W., Droste, J., Rückert, C., Kalinowski, J., & Pucker, B. (2018). High Quality de novo Transcriptome Assembly of Croton tiglium. Frontiers in Molecular Biosciences, 5. doi:[10.3389/fmolb.2018.00062](https://doi.org/10.3389/fmolb.2018.00062).
