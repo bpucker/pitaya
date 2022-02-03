@@ -44,7 +44,7 @@ python calculate_RPKMs.py
 
 ### Plotting transcript abundances
 
-The scripts `pitaya_MYB_exp_plots_summary.py` and `pitaya_exp_plots_summary.py` contain dataset specific elements. These scripts are included for documentation purposes and should not be used on other datasets without adjustments.
+The scripts `pitaya_MYB_exp_plots_summary.py` and `pitaya_exp_plots_summary_tissue.py` contain dataset specific elements of the datasets reanalyzed in [Pucker et al., 2021](https://doi.org/10.1186/s12870-021-03080-9). These scripts are included for documentation purposes and should not be used on other datasets without adjustments.
 
 ```
 python pitaya_exp_plots_summary.py
@@ -58,6 +58,8 @@ python pitaya_exp_plots_summary.py
 
 `--out` specifies the figure output file. The file extension specifies the file type (e.g. PNG, JPG, PDF, SVG).
 
+
+The scripts `pitaya2_exp_plots_summary.py` and `pitaya2_exp_plots_summary.py` contain dataset specific elements of the datasets reanalyzed in [Pucker & Brockington, 2022](https://doi.org/10.1101/2021.11.16.468878). The usage of these scripts is equivalent to `pitaya_exp_plots_summary_tissue.py`.
 
 
 
