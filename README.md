@@ -64,6 +64,7 @@ The scripts `pitaya2_exp_plots_summary.py` and `pitaya2_exp_plots_summary.py` co
 
 
 ## References
+Pucker B. & Brockington S.F. (2022). The evidence for anthocyanins in the betalain-pigmented genus Hylocereus is weak. bioRxiv 2021.11.16.468878; doi: [10.1101/2021.11.16.468878](https://doi.org/10.1101/2021.11.16.468878).
 
 Pucker B., Singh H.B., Kumari M., Khan M.I., Brockington S.F. (2021) The report of anthocyanins in the betalain-pigmented genus Hylocereus is not well evidenced and is not a strong basis to refute the mutual exclusion paradigm. BMC Plant Biology 21(1): 297. doi:[10.1186/s12870-021-03080-9](https://doi.org/10.1186/s12870-021-03080-9).
 
