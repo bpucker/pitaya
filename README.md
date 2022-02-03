@@ -64,13 +64,13 @@ The scripts `pitaya2_exp_plots_summary.py` and `pitaya2_exp_plots_summary.py` co
 
 
 ## References
-Pucker B. & Brockington S.F. (2022). The evidence for anthocyanins in the betalain-pigmented genus Hylocereus is weak. bioRxiv 2021.11.16.468878; doi: [10.1101/2021.11.16.468878](https://doi.org/10.1101/2021.11.16.468878).
+Pucker B. & Brockington S.F. (2022). The evidence for anthocyanins in the betalain-pigmented genus _Hylocereus_ is weak. bioRxiv 2021.11.16.468878; doi: [10.1101/2021.11.16.468878](https://doi.org/10.1101/2021.11.16.468878).
 
-Pucker B., Singh H.B., Kumari M., Khan M.I., Brockington S.F. (2021) The report of anthocyanins in the betalain-pigmented genus Hylocereus is not well evidenced and is not a strong basis to refute the mutual exclusion paradigm. BMC Plant Biology 21(1): 297. doi:[10.1186/s12870-021-03080-9](https://doi.org/10.1186/s12870-021-03080-9).
+Pucker B., Singh H.B., Kumari M., Khan M.I., Brockington S.F. (2021) The report of anthocyanins in the betalain-pigmented genus _Hylocereus_ is not well evidenced and is not a strong basis to refute the mutual exclusion paradigm. BMC Plant Biology 21(1): 297. doi:[10.1186/s12870-021-03080-9](https://doi.org/10.1186/s12870-021-03080-9).
 
 Pucker B. and Brockington S. (2020). Pitaya transcriptome assemblies and investigation of transcript abundances. Bielefeld University. doi: [10.4119/unibi/2946374](https://doi.org/10.4119/unibi/2946374).
 
-Haak, M., Vinke, S., Keller, W., Droste, J., Rückert, C., Kalinowski, J., & Pucker, B. (2018). High Quality de novo Transcriptome Assembly of Croton tiglium. Frontiers in Molecular Biosciences, 5. doi:[10.3389/fmolb.2018.00062](https://doi.org/10.3389/fmolb.2018.00062).
+Haak, M., Vinke, S., Keller, W., Droste, J., Rückert, C., Kalinowski, J., & Pucker, B. (2018). High Quality _de novo_ Transcriptome Assembly of _Croton tiglium_. Frontiers in Molecular Biosciences, 5. doi:[10.3389/fmolb.2018.00062](https://doi.org/10.3389/fmolb.2018.00062).
 
-Pucker, B., Holtgräwe, D., Rosleff Sörensen, T., Stracke, R., Viehöver, P., and Weisshaar, B. (2016). A de novo Genome Sequence Assembly of the Arabidopsis thaliana Accession Niederzenz-1 Displays Presence/Absence Variation and Strong Synteny. PloS-ONE 11:e0164321. doi:[10.1371/journal.pone.0164321](https://doi.org/10.1371/journal.pone.0164321).
+Pucker, B., Holtgräwe, D., Rosleff Sörensen, T., Stracke, R., Viehöver, P., and Weisshaar, B. (2016). A de novo Genome Sequence Assembly of the _Arabidopsis thaliana_ Accession Niederzenz-1 Displays Presence/Absence Variation and Strong Synteny. PloS-ONE 11:e0164321. doi:[10.1371/journal.pone.0164321](https://doi.org/10.1371/journal.pone.0164321).
 
